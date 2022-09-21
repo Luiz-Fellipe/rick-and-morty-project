@@ -12,8 +12,14 @@ export const globalStyles = globalCss({
     cursor: 'pointer',
   },
   body: {
-    background: `$background`,
+    background: `$N1`,
     color: `$text`,
+    maxWidth: '$344',
+    margin: '$0 auto',
+
+    '@md': {
+      maxWidth: '$720',
+    },
   },
   'h1, h2, h3, h4, h5, h6': {
     color: `$title`,
