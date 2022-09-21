@@ -1,16 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import './index.css';
+import { globalStyles } from './styles/global';
+
+import { Home } from './pages/Home';
 
 function App() {
-  return (
-    <div className="container">
-      <div>Name: shell</div>
-      <div>Framework: react</div>
-      <div>Language: TypeScript</div>
-      <div>CSS: Empty CSS</div>
-    </div>
-  );
+  globalStyles();
+
+  return <Home />;
 }
 ReactDOM.render(<App />, document.getElementById('app'));
