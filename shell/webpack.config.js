@@ -43,6 +43,14 @@ module.exports = {
           loader: 'babel-loader',
         },
       },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
     ],
   },
 
@@ -57,8 +65,8 @@ module.exports = {
           'characters_list@http://localhost:3001/remoteEntry.js '
       },
       exposes: {
-        './components/button': './src/components/button/index.tsx',
-        './components/input': './src/components/input/index.tsx',
+        './components/button': './src/components/global/button/index.tsx',
+        './components/input': './src/components/global/input/index.tsx',
         './App': './src/App',
       },
       shared: [

@@ -7,6 +7,8 @@ export const { styled, getCssText, globalCss } = createStitches({
       N1: '#FFFCF9',
       B0: '#42B4CA',
       G0: '#BFDE42',
+      GR0: '#333333',
+      GR1: '#828282',
     },
     space: {
       '0': `0px`,
@@ -19,6 +21,7 @@ export const { styled, getCssText, globalCss } = createStitches({
       '24': `1.5rem`,
       '32': `2rem`,
       '48': '3rem',
+      '80': '5rem',
     },
     radii: {
       full: `99999px`,
@@ -59,7 +62,7 @@ export const { styled, getCssText, globalCss } = createStitches({
       modal: '1000',
     },
     shadows: {
-      default: '0px 4px 8px rgba(16, 24, 64, 0.08)',
+      default: '0px -3px 8px rgba(0, 0, 0, 0.25)',
     },
   },
   media: {
