@@ -1,17 +1,17 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
 
-import "./index.css";
+const ShellApp = React.lazy(() => import('shell/App'));
 
 function App() {
-  return (
-    <div className="container">
-      <div>Name: characters-list</div>
-      <div>Framework: react</div>
+  function LoadingShell() {
+    return <div>Loading Shell...</div>;
+  }
 
-      <div>Language: TypeScript</div>
-      <div>CSS: Empty CSS</div>
-    </div>
+  return (
+    <React.Suspense fallback={<LoadingShell />}>
+      <ShellApp />
+    </React.Suspense>
   );
 }
-ReactDOM.render(<App />, document.getElementById("app"));
+
+export default App;
