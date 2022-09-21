@@ -13,13 +13,6 @@ export const globalStyles = globalCss({
   },
   body: {
     background: `$N1`,
-    color: `$text`,
-    maxWidth: '$344',
-    margin: '$0 auto',
-
-    '@md': {
-      maxWidth: '$720',
-    },
   },
   'h1, h2, h3, h4, h5, h6': {
     color: `$title`,
