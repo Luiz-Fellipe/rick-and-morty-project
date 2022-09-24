@@ -16,43 +16,30 @@ export const InputContainer = styled('div', {
   },
 });
 
-export const InputStyled = styled('input', {
+export const InputContent = styled('div', {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+
+  backgroundColor: '$N0',
+
   width: '100%',
   height: '32px',
 
-  border: '1px solid $N400',
+  border: '1px solid $GR2',
   borderRadius: '$default',
 
-  padding: '$8 $12',
-
-  fontSize: '$12',
-  fontFamily: '$default',
   transition: 'all 0.2s ease-out',
 
-  color: '$N700',
-
-  '&::placeholder': {
-    color: '$N600',
+  '&:focus-within': {
+    borderColor: '$G0',
+    outline: '2px solid $G1',
   },
 
-  '&:hover': {
-    '&::placeholder': {
-      color: '$N700',
-    },
-  },
-
-  '&:focus': {
-    borderColor: '$B300',
-    outline: '2px solid #D6E0FF',
-  },
-
-  '&:disabled': {
-    cursor: 'not-allowed',
-    borderColor: '$N300',
-    backgroundColor: '$N100',
-    '&::placeholder': {
-      color: '$N600',
-    },
+  '> svg': {
+    padding: '$10 $0 $10 $12',
+    color: '$GR3',
+    fontSize: '$12',
   },
 
   variants: {
@@ -60,6 +47,45 @@ export const InputStyled = styled('input', {
       true: {
         borderColor: '$R400',
       },
+    },
+    disabled: {
+      true: {
+        cursor: 'not-allowed',
+        borderColor: '$N300',
+        backgroundColor: '$N100',
+      },
+    },
+  },
+});
+
+export const InputStyled = styled('input', {
+  width: '100%',
+  height: '100%',
+
+  backgroundColor: 'transparent',
+  border: 'none',
+  outline: 'none',
+
+  padding: '$8 $12',
+
+  fontSize: '$12',
+  fontFamily: '$default',
+  color: '$N700',
+
+  '&::placeholder': {
+    color: '$GR3',
+  },
+
+  '&:hover': {
+    '&::placeholder': {
+      color: '$GR0',
+    },
+  },
+
+  '&:disabled': {
+    cursor: 'not-allowed',
+    '&::placeholder': {
+      color: '$N600',
     },
   },
 });
