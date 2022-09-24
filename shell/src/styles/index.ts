@@ -7,8 +7,12 @@ export const { styled, getCssText, globalCss } = createStitches({
       N1: '#FFFCF9',
       B0: '#42B4CA',
       G0: '#BFDE42',
+      G1: '#8BC537',
       GR0: '#333333',
       GR1: '#828282',
+      GR2: '#D8DAE5',
+      GR3: '#8F95B2',
+      GR4: '#DADADA',
     },
     space: {
       '0': `0px`,
