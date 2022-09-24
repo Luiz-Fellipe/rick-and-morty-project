@@ -65,6 +65,7 @@ module.exports = {
           'characters_list@http://localhost:3001/remoteEntry.js '
       },
       exposes: {
+        './styles': './src/styles/index.ts',
         './components/button': './src/components/global/button/index.tsx',
         './components/input': './src/components/global/input/index.tsx',
         './App': './src/App',
@@ -80,6 +81,9 @@ module.exports = {
             singleton: true,
             requiredVersion: deps['react-dom'],
           },
+          '@fortawesome/free-solid-svg-icons': {
+            singleton: true,
+          }
         },
       ],
     }),

@@ -1,11 +1,11 @@
 import React, { InputHTMLAttributes } from 'react';
-
+import { IconProp, IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   InputStyled,
+  InputContent,
   ErrorMessage,
   InputContainer,
-  Label,
-  Description,
 } from './styles';
 
 export interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -14,8 +14,7 @@ export interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   full?: boolean;
   error?: boolean;
   errorMessage?: string;
-  label?: string;
-  description?: string;
+  Icon: IconProp | IconDefinition;
 }
 
 export function Input({
@@ -24,21 +23,25 @@ export function Input({
   error,
   errorMessage,
   full,
-  label,
-  description,
+  Icon,
   ...rest
 }: IInputProps) {
   return (
-    <InputContainer data-testid="input-without-icon-container" full={full}>
-      {!!label && <Label>{label}</Label>}
-      {!!description && <Description>{description}</Description>}
-      <InputStyled
-        data-testid="input-without-icon"
-        placeholder={placeholder}
-        disabled={disabled}
+    <InputContainer data-testid="input-with-icon-container" full={full}>
+      <InputContent
+        data-testid="input-with-icon-content"
         error={error}
-        {...rest}
-      />
+        disabled={disabled}
+      >
+        {Icon && <FontAwesomeIcon icon={Icon} />}
+        <InputStyled
+          data-testid="input-with-icon"
+          placeholder={placeholder}
+          disabled={disabled}
+          {...rest}
+        />
+      </InputContent>
+
       {error && <ErrorMessage>{errorMessage}</ErrorMessage>}
     </InputContainer>
   );
