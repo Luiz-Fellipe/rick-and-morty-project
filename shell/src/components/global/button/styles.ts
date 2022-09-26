@@ -16,24 +16,37 @@ export const ButtonStyled = styled('button', {
 
   '&:disabled': {
     cursor: 'not-allowed',
-    backgroundColor: '$B300',
+    backgroundColor: '$GR2',
   },
 
   padding: '$8 $16',
 
-  backgroundColor: '$G0',
-
   textAlign: 'center',
   color: '$N0',
 
-  '&:hover': {
-    backgroundColor: '$G1',
-  },
+  variants: {
+    variant: {
+      primary: {
+        backgroundColor: '$G0',
+        '&:hover:not(:disabled)': {
+          backgroundColor: '$G1',
+        },
+        '&:focus:not(:disabled)': {
+          outline: '2px solid $G0',
+          backgroundColor: '$G1',
+        },
+      },
+      secondary: {
+        backgroundColor: '$B0',
 
-  '&:focus': {
-    outline: '2px solid $G0',
-  },
-  '&:active': {
-    backgroundColor: '$B600',
+        '&:hover:not(:disabled)': {
+          backgroundColor: '$B1',
+        },
+        '&:focus:not(:disabled)': {
+          outline: '2px solid $B2',
+          backgroundColor: '$B1',
+        },
+      },
+    },
   },
 });
