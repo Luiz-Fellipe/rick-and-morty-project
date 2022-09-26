@@ -24,7 +24,7 @@ export const InputContent = styled('div', {
   backgroundColor: '$N0',
 
   width: '100%',
-  height: '32px',
+  height: '36px',
 
   border: '1px solid $GR2',
   borderRadius: '$default',

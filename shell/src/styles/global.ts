@@ -9,7 +9,6 @@ export const globalStyles = globalCss({
   },
   'body, button': {
     fontFamily: `$default`,
-    cursor: 'pointer',
   },
   body: {
     background: `$N1`,
@@ -23,5 +22,9 @@ export const globalStyles = globalCss({
 
     display: 'grid',
     placeItems: 'center',
+  },
+
+  button: {
+    cursor: 'pointer',
   },
 });
