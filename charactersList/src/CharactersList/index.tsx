@@ -5,6 +5,7 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { Input } from 'shell/components/input';
 import { Button } from 'shell/components/button';
 
+import { useQuery, gql } from '@apollo/client';
 // Styles
 import {
   CharactersListWrapper,
@@ -14,6 +15,20 @@ import {
 import { CharacterCard } from './components/CharacterCard';
 
 export function CharactersList() {
+  const GET_CHARACTERS = gql`
+    query ExampleQuery {
+      characters {
+        results {
+          image
+          id
+          name
+        }
+      }
+    }
+  `;
+
+  const { loading, error, data } = useQuery(GET_CHARACTERS);
+
   return (
     <CharactersListWrapper>
       <CharactersListHeader>
