@@ -12,7 +12,7 @@ export const ButtonStyled = styled('button', {
   fontSize: '$12',
   fontWeight: '$medium',
 
-  transition: 'all 0.2s ease-out',
+  transition: 'border,outline 0.1s ease',
 
   '&:disabled': {
     cursor: 'not-allowed',
@@ -32,7 +32,7 @@ export const ButtonStyled = styled('button', {
           backgroundColor: '$G1',
         },
         '&:focus:not(:disabled)': {
-          outline: '2px solid $G0',
+          outline: '2px solid $G1A',
           backgroundColor: '$G1',
         },
       },

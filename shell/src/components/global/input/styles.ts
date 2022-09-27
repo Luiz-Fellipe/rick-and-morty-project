@@ -29,11 +29,11 @@ export const InputContent = styled('div', {
   border: '1px solid $GR2',
   borderRadius: '$default',
 
-  transition: 'all 0.2s ease-out',
+  transition: 'border,outline 0.1s ease',
 
   '&:focus-within': {
     borderColor: '$G0',
-    outline: '2px solid $G1',
+    outline: '2px solid $G1A',
   },
 
   '> svg': {

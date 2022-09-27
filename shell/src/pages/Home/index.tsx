@@ -1,5 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ApolloProvider } from '@apollo/client';
+
+// Services
+import { client } from 'src/services/api';
 
 // Components
 import { CharacterDetails } from 'character_details/CharacterDetails';
@@ -9,9 +13,9 @@ import { Header } from 'src/components/header';
 // Styles
 import { Content } from './styles';
 
-export function Home() {
+export default function Home() {
   return (
-    <>
+    <ApolloProvider client={client}>
       <Header />
       <Content>
         <Router>
@@ -21,6 +25,6 @@ export function Home() {
           </Routes>
         </Router>
       </Content>
-    </>
+    </ApolloProvider>
   );
 }
