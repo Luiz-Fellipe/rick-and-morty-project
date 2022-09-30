@@ -6,22 +6,38 @@ export const globalStyles = globalCss({
     padding: 0,
     border: `none`,
     boxSizing: `border-box`,
+
+    '&::-webkit-scrollbar-track': {
+      background: '$GR4',
+    },
+
+    '&::-webkit-scrollbar': {
+      width: '6px',
+      height: '6px',
+    },
+
+    '&::-webkit-scrollbar-thumb': {
+      background: '$GR1',
+    },
+  },
+  html: {
+    width: '100%',
+    height: '100%',
   },
   'body, button': {
     fontFamily: `$default`,
   },
   body: {
     background: `$N1`,
+    width: '100%',
+    height: '100%',
   },
   'h1, h2, h3, h4, h5, h6': {
     color: `$title`,
   },
-  '#root': {
+  '#app': {
     width: '100%',
     height: '100%',
-
-    display: 'grid',
-    placeItems: 'center',
   },
 
   button: {

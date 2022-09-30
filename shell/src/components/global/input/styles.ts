@@ -42,6 +42,38 @@ export const InputContent = styled('div', {
     fontSize: '$12',
   },
 
+  '> input': {
+    width: '100%',
+    height: '100%',
+
+    backgroundColor: 'transparent',
+    border: 'none',
+    outline: 'none',
+
+    padding: '$8 $12',
+
+    fontSize: '$12',
+    fontFamily: '$default',
+    color: '$N700',
+
+    '&::placeholder': {
+      color: '$GR3',
+    },
+
+    '&:hover': {
+      '&::placeholder': {
+        color: '$GR0',
+      },
+    },
+
+    '&:disabled': {
+      cursor: 'not-allowed',
+      '&::placeholder': {
+        color: '$N600',
+      },
+    },
+  },
+
   variants: {
     error: {
       true: {
@@ -54,38 +86,6 @@ export const InputContent = styled('div', {
         borderColor: '$N300',
         backgroundColor: '$N100',
       },
-    },
-  },
-});
-
-export const InputStyled = styled('input', {
-  width: '100%',
-  height: '100%',
-
-  backgroundColor: 'transparent',
-  border: 'none',
-  outline: 'none',
-
-  padding: '$8 $12',
-
-  fontSize: '$12',
-  fontFamily: '$default',
-  color: '$N700',
-
-  '&::placeholder': {
-    color: '$GR3',
-  },
-
-  '&:hover': {
-    '&::placeholder': {
-      color: '$GR0',
-    },
-  },
-
-  '&:disabled': {
-    cursor: 'not-allowed',
-    '&::placeholder': {
-      color: '$N600',
     },
   },
 });

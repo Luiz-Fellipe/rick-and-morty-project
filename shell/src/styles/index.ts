@@ -12,6 +12,7 @@ export const { styled, getCssText, globalCss } = createStitches({
       G0: '#BFDE42',
       G1: '#8BC537',
       G1A: 'RGBA(139,197,55,0.49)',
+      G2: '#628c27',
       GR0: '#333333',
       GR1: '#828282',
       GR2: '#D8DAE5',
@@ -43,6 +44,7 @@ export const { styled, getCssText, globalCss } = createStitches({
     sizes: {
       '344': '21.5rem',
       '720': '45rem',
+      '1360': '85rem',
     },
     fontSizes: {
       '8': `0.5rem`,

@@ -1,10 +1,21 @@
 import { styled } from 'shell/styles';
 
 export const CharactersListWrapper = styled('div', {
-  maxWidth: '$344',
+  // maxWidth: '$344',
+  height: '100%',
+  maxHeight: '100%',
 
-  '@md': {
-    maxWidth: '$720',
+  display: 'flex',
+  flexDirection: 'column',
+
+  margin: '0 $12',
+
+  // '@md': {
+  //   maxWidth: '$720',
+  // },
+
+  '@xxlg': {
+    maxWidth: '$1360',
   },
 });
 
@@ -32,7 +43,7 @@ export const CharactersListHeader = styled('div', {
 
   '> div': {
     display: 'grid',
-    gridTemplateColumns: '1fr 75px',
+    gridTemplateColumns: '235px 75px',
     gap: '20px',
 
     alignItems: 'center',
@@ -41,23 +52,30 @@ export const CharactersListHeader = styled('div', {
 
     '@md': {
       marginTop: '$48',
-      gridTemplateColumns: '235px 75px',
     },
   },
 });
 
 export const CharactersListContent = styled('div', {
   width: '100%',
+  height: 'fit-content',
+
+  overflowY: 'auto',
+
+  padding: '$12',
 
   display: 'flex',
   flexWrap: 'wrap',
   justifyContent: 'center',
-  gap: '$36',
+  gap: '$32',
 
-  marginTop: '$48',
+  marginTop: '$36',
 
-  '@md': {
-    marginTop: '$80',
+  // '@md': {
+  //   gap: '$16',
+  // },
+
+  '@xxlg': {
     justifyContent: 'flex-start',
   },
 });

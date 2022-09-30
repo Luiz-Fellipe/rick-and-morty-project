@@ -44,7 +44,7 @@ module.exports = {
         },
       },
       {
-        test: /\.(png|jpe?g|gif)$/i,
+        test: /\.(png|jpe?g|gif|webp)$/i,
         use: [
           {
             loader: "file-loader",
@@ -73,7 +73,9 @@ module.exports = {
         "./styles": "./src/styles/index.ts",
         "./components/button": "./src/components/global/button/index.tsx",
         "./components/input": "./src/components/global/input/index.tsx",
+        "./components/styles/SkeletonLoading": "./src/components/global/SkeletonLoading/styles.ts",
         "./App": "./src/App",
+        "./Services": "./src/services/api.ts"
       },
       shared: [
         {
@@ -89,6 +91,10 @@ module.exports = {
           "@apollo/client": {
             singleton: true,
             requiredVersion: "^3.6.9",
+          },
+          '@tanstack/react-query': {
+            singleton: true,
+            requiredVersion: "^4.7.1",
           }
         },
       ],

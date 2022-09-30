@@ -3,16 +3,25 @@ import { Button } from 'shell/components/button';
 // Styles
 import { CardWrapper } from './styles';
 
-export function CharacterCard() {
+interface ICharacterProps {
+  name: string;
+  avatarUrl: string;
+  characterId: string | number;
+}
+
+export function CharacterCard({
+  name,
+  avatarUrl,
+  characterId,
+}: ICharacterProps) {
   return (
     <CardWrapper>
-      <img
-        src="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
-        alt="Rick Sanchez"
-      />
-      <h2>Rick Sanchez</h2>
+      <img src={avatarUrl} alt={name} />
+      <h2>{name}</h2>
 
-      <Button variant="secondary">See More</Button>
+      <Button variant="secondary" onClick={() => console.log(characterId)}>
+        See More
+      </Button>
     </CardWrapper>
   );
 }

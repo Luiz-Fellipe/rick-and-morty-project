@@ -5,6 +5,7 @@ export const CardWrapper = styled('div', {
   height: '100%',
 
   maxWidth: '300px',
+  maxHeight: '290px',
 
   display: 'flex',
   flexDirection: 'column',
@@ -21,6 +22,7 @@ export const CardWrapper = styled('div', {
     width: '100px',
     height: '100px',
 
+    backgroundColor: '$GR4',
     borderRadius: '100%',
 
     border: '2px solid $G1',

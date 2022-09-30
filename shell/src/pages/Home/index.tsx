@@ -1,9 +1,6 @@
 import React from 'react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { ApolloProvider } from '@apollo/client';
-
-// Services
-import { client } from 'src/services/api';
 
 // Components
 import { CharacterDetails } from 'character_details/CharacterDetails';
@@ -14,8 +11,17 @@ import { Header } from 'src/components/header';
 import { Content } from './styles';
 
 export default function Home() {
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        cacheTime: 60000 * 2, // 2min
+        refetchOnWindowFocus: false,
+      },
+    },
+  });
+
   return (
-    <ApolloProvider client={client}>
+    <QueryClientProvider client={queryClient}>
       <Header />
       <Content>
         <Router>
@@ -25,6 +31,6 @@ export default function Home() {
           </Routes>
         </Router>
       </Content>
-    </ApolloProvider>
+    </QueryClientProvider>
   );
 }

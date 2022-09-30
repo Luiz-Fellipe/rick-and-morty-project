@@ -16,13 +16,13 @@ export const ButtonStyled = styled('button', {
 
   '&:disabled': {
     cursor: 'not-allowed',
-    backgroundColor: '$GR2',
+    opacity: '0.6',
   },
 
   padding: '$8 $16',
 
   textAlign: 'center',
-  color: '$N0',
+  // color: '$N0',
 
   variants: {
     variant: {
@@ -38,6 +38,7 @@ export const ButtonStyled = styled('button', {
       },
       secondary: {
         backgroundColor: '$B0',
+        color: '$N0',
 
         '&:hover:not(:disabled)': {
           backgroundColor: '$B1',
@@ -48,5 +49,36 @@ export const ButtonStyled = styled('button', {
         },
       },
     },
+    iconSide: {
+      left: {
+        flexDirection: 'row',
+      },
+      right: {
+        flexDirection: 'row-reverse',
+      },
+    },
+
+    isActive: {
+      true: {},
+    },
   },
+
+  compoundVariants: [
+    {
+      variant: 'primary',
+      isActive: true,
+      css: {
+        outline: '2px solid $G1A',
+        backgroundColor: '$G2 !important',
+      },
+    },
+    {
+      variant: 'secondary',
+      isActive: true,
+      css: {
+        outline: '2px solid $B2',
+        backgroundColor: '$B1 !important',
+      },
+    },
+  ],
 });
