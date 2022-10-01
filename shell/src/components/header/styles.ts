@@ -12,8 +12,4 @@ export const HeaderStyled = styled('header', {
   alignItems: 'center',
 
   marginBottom: '$48',
-
-  '@md': {
-    marginBottom: '$80',
-  },
 });

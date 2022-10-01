@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { globalStyles } from './styles/global';
+// Components
+import Home from './pages/Home';
 
-import { Home } from './pages/Home';
+// Styles
+import { globalStyles } from './styles/global';
 
 function App() {
   globalStyles();

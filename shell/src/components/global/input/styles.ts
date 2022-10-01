@@ -29,17 +29,49 @@ export const InputContent = styled('div', {
   border: '1px solid $GR2',
   borderRadius: '$default',
 
-  transition: 'all 0.2s ease-out',
+  transition: 'border,outline 0.1s ease',
 
   '&:focus-within': {
     borderColor: '$G0',
-    outline: '2px solid $G1',
+    outline: '2px solid $G1A',
   },
 
   '> svg': {
     padding: '$10 $0 $10 $12',
     color: '$GR3',
     fontSize: '$12',
+  },
+
+  '> input': {
+    width: '100%',
+    height: '100%',
+
+    backgroundColor: 'transparent',
+    border: 'none',
+    outline: 'none',
+
+    padding: '$8 $12',
+
+    fontSize: '$12',
+    fontFamily: '$default',
+    color: '$N700',
+
+    '&::placeholder': {
+      color: '$GR3',
+    },
+
+    '&:hover': {
+      '&::placeholder': {
+        color: '$GR0',
+      },
+    },
+
+    '&:disabled': {
+      cursor: 'not-allowed',
+      '&::placeholder': {
+        color: '$N600',
+      },
+    },
   },
 
   variants: {
@@ -54,38 +86,6 @@ export const InputContent = styled('div', {
         borderColor: '$N300',
         backgroundColor: '$N100',
       },
-    },
-  },
-});
-
-export const InputStyled = styled('input', {
-  width: '100%',
-  height: '100%',
-
-  backgroundColor: 'transparent',
-  border: 'none',
-  outline: 'none',
-
-  padding: '$8 $12',
-
-  fontSize: '$12',
-  fontFamily: '$default',
-  color: '$N700',
-
-  '&::placeholder': {
-    color: '$GR3',
-  },
-
-  '&:hover': {
-    '&::placeholder': {
-      color: '$GR0',
-    },
-  },
-
-  '&:disabled': {
-    cursor: 'not-allowed',
-    '&::placeholder': {
-      color: '$N600',
     },
   },
 });
