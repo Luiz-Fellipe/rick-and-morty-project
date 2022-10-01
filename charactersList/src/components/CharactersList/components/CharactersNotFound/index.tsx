@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Assets
-import notFoundWebp from '../../../assets/notFound.webp';
+import notFoundWebp from '@/assets/notFound.webp';
 
 // Styles
 import { CharactersNotFoundWrapper } from './styles';

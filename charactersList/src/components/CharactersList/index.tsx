@@ -1,5 +1,4 @@
-import React, { useMemo, useRef, useState } from 'react';
-import { useQuery } from '@tanstack/react-query';
+import React, { useRef, useState } from 'react';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 // Components
@@ -10,8 +9,8 @@ import { CharactersNotFound } from './components/CharactersNotFound';
 import { CharacterCard } from './components/CharacterCard';
 import { Pagination } from './components/Pagination';
 
-// Services
-import { getCharacters } from '../services/endpoints/characters';
+// Hooks
+import { useGetCharacters } from './hooks/useGetCharacters';
 
 // Styles
 import {
@@ -27,10 +26,6 @@ export function CharactersList() {
 
   const [page, setPage] = useState(1);
 
-  const queryKey = useMemo(() => {
-    return ['characters', searchValue, page];
-  }, [searchValue, page]);
-
   const handleSearchValue = () => {
     if (searchValue === inputSearchRef?.current?.value) return;
 
@@ -38,30 +33,10 @@ export function CharactersList() {
     setPage(1);
   };
 
-  const handleGetCharacters = async () => {
-    const { apiCall } = getCharacters();
-
-    const { characters } = await apiCall({
-      variables: {
-        page,
-        filter: {
-          name: searchValue,
-        },
-      },
-    });
-
-    return characters;
-  };
-
-  const { data, isLoading, isSuccess } = useQuery(
-    queryKey,
-    handleGetCharacters,
-    {
-      staleTime: 1000 * 5, // 5 seconds
-      keepPreviousData: true,
-      retry: 0,
-    }
-  );
+  const { data, isLoading, isSuccess } = useGetCharacters({
+    page,
+    searchValue,
+  });
 
   return (
     <CharactersListWrapper>

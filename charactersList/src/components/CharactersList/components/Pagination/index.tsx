@@ -8,7 +8,7 @@ import {
 import { Button } from 'shell/components/button';
 
 // Hooks
-import { usePagination } from '../../../hooks/usePagination';
+import { usePagination } from '@/hooks/usePagination';
 
 // styles
 import { PaginationWrapper } from './styles';
@@ -44,7 +44,7 @@ export function Pagination({
       />
       {pages.map((page) =>
         page === 'dots-1' || page === 'dots-2' ? (
-          <span>...</span>
+          <span key={page}>...</span>
         ) : (
           <Button
             isActive={currentPage === page}

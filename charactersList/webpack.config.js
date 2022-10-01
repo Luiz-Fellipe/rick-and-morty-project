@@ -1,5 +1,6 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
+const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 const path = require("path");
 const deps = require("./package.json").dependencies;
 
@@ -11,6 +12,12 @@ module.exports = {
 
   resolve: {
     extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
+    plugins: [
+      new TsconfigPathsPlugin({
+        configFile: "./tsconfig.json",
+        extensions: [".tsx", ".ts"],
+      }),
+    ],
     alias: {
       events: "events",
     },
@@ -74,7 +81,7 @@ module.exports = {
         shell: "shell@http://localhost:3000/remoteEntry.js",
       },
       exposes: {
-        "./CharactersList": "./src/CharactersList",
+        "./CharactersList": "./src/components/CharactersList",
       },
       shared: {
         ...deps,

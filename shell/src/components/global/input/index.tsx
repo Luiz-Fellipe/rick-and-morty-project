@@ -1,12 +1,7 @@
 import React, { forwardRef, InputHTMLAttributes } from 'react';
 import { IconProp, IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  InputStyled,
-  InputContent,
-  ErrorMessage,
-  InputContainer,
-} from './styles';
+import { InputContent, ErrorMessage, InputContainer } from './styles';
 
 export interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   placeholder?: string;
