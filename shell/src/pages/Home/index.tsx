@@ -27,7 +27,10 @@ export default function Home() {
         <Router>
           <Routes>
             <Route path="/" element={<CharactersList />} />
-            <Route path="/details" element={<CharacterDetails />} />
+            <Route
+              path="/details/:characterId"
+              element={<CharacterDetails />}
+            />
           </Routes>
         </Router>
       </Content>

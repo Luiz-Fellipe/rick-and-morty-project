@@ -43,7 +43,7 @@ export function CharactersList() {
       <CharactersListHeader>
         <h1>Characters</h1>
         <span>
-          Find and view information about the ricky and morty characters
+          Find and view information about the rick and morty characters
         </span>
 
         <div>
