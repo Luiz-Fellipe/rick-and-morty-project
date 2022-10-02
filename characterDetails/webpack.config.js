@@ -1,5 +1,6 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
+const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 
 const deps = require("./package.json").dependencies;
 
@@ -11,11 +12,24 @@ module.exports = {
 
   resolve: {
     extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
+    plugins: [
+      new TsconfigPathsPlugin({
+        configFile: "./tsconfig.json",
+        extensions: [".tsx", ".ts"],
+      }),
+    ],
   },
 
   devServer: {
     port: 3002,
     historyApiFallback: true,
+    hot: false,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+      "Access-Control-Allow-Headers":
+        "X-Requested-With, content-type, Authorization",
+    },
   },
 
   module: {
@@ -49,7 +63,7 @@ module.exports = {
         shell: "shell@http://localhost:3000/remoteEntry.js",
       },
       exposes: {
-        "./CharacterDetails": "./src/CharacterDetails",
+        "./CharacterDetails": "./src/components/CharacterDetails",
       },
       shared: {
         ...deps,

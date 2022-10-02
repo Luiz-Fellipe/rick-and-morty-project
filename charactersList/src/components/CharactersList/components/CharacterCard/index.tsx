@@ -1,5 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
+// Components
 import { Button } from 'shell/components/button';
+
 // Styles
 import { CardWrapper } from './styles';
 
@@ -19,9 +23,9 @@ export function CharacterCard({
       <img src={avatarUrl} alt={name} />
       <h2>{name}</h2>
 
-      <Button variant="secondary" onClick={() => console.log(characterId)}>
-        See More
-      </Button>
+      <Link to={`details/${characterId}`}>
+        <Button variant="secondary">See More</Button>
+      </Link>
     </CardWrapper>
   );
 }
