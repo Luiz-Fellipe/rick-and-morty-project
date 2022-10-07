@@ -1,7 +1,7 @@
 import { createStitches, ScaleValue } from '@stitches/react';
 
-export const { styled, getCssText, globalCss } = createStitches({
-  prefix: 'shell',
+export const { styled, getCssText } = createStitches({
+  prefix: 'character-details',
   theme: {
     colors: {
       N0: '#FFFFFF',
