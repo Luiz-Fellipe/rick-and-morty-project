@@ -70,7 +70,6 @@ module.exports = {
           "characters_list@http://localhost:3001/remoteEntry.js",
       },
       exposes: {
-        "./styles": "./src/styles/index.ts",
         "./components/button": "./src/components/global/button/index.tsx",
         "./components/input": "./src/components/global/input/index.tsx",
         "./components/styles/SkeletonLoading": "./src/components/global/SkeletonLoading/styles.ts",
@@ -88,13 +87,13 @@ module.exports = {
             singleton: true,
             requiredVersion: deps["react-dom"],
           },
-          "@apollo/client": {
-            singleton: true,
-            requiredVersion: "^3.6.9",
-          },
           '@tanstack/react-query': {
             singleton: true,
             requiredVersion: "^4.7.1",
+          },
+          '@stitches/react': {
+            singleton: true,
+            requiredVersion: "^1.2.8"
           }
         },
       ],

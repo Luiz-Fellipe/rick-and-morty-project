@@ -1,4 +1,4 @@
-import { styled } from 'shell/styles';
+import { styled } from '@/styles';
 
 export const CharacterDetailsWrapper = styled('div', {
   maxWidth: '$720',

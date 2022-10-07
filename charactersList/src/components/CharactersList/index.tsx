@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 // Components
 import { Input } from 'shell/components/input';
 import { Button } from 'shell/components/button';

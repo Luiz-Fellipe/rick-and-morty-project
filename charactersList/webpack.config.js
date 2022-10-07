@@ -92,6 +92,14 @@ module.exports = {
         "react-dom": {
           singleton: true,
           requiredVersion: deps["react-dom"],
+        },
+        '@tanstack/react-query': {
+          singleton: true,
+          requiredVersion: "^4.7.1",
+        },
+        '@stitches/react': {
+          singleton: true,
+          requiredVersion: "^1.2.8"
         }
       },
     }),
