@@ -8,7 +8,7 @@ import { useParams, Link } from 'react-router-dom';
 import { formatDate } from '@/utils/formatDate';
 
 // Hooks
-import { useGetCharacter } from './hooks/useGetCharacterDetail';
+import { useGetCharacter } from '@/components/CharacterDetails/hooks/useGetCharacterDetail';
 
 // Components
 import { CharacterSkeletonLoading } from './components/CharacterSkeletonLoading';
@@ -81,7 +81,10 @@ export function CharacterDetails() {
 
           <CharacterDetailsEpisodes>
             {data?.episode?.map((eps) => (
-              <span key={eps.id}>{`${eps.name} - ${eps.episode}`}</span>
+              <span
+                data-testid="episode"
+                key={eps.id}
+              >{`${eps.name} - ${eps.episode}`}</span>
             ))}
           </CharacterDetailsEpisodes>
         </CharacterDetailsContent>

@@ -7,6 +7,7 @@ import { SkeletonLoading } from 'shell/components/styles/SkeletonLoading';
 function SkeletonStyled() {
   return (
     <SkeletonLoading
+      data-testid="skeleton-loading"
       css={{
         margin: '$48 $8',
         borderRadius: '$default',

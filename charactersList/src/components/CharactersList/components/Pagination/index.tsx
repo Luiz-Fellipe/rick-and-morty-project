@@ -35,8 +35,9 @@ export function Pagination({
   });
 
   return (
-    <PaginationWrapper>
+    <PaginationWrapper data-testid="pagination">
       <Button
+        data-testid="prev-button"
         onlyIcon
         disabled={!hasPrevPage}
         onClick={() => handleSetPage(currentPage - 1)}
@@ -44,9 +45,12 @@ export function Pagination({
       />
       {pages.map((page) =>
         page === 'dots-1' || page === 'dots-2' ? (
-          <span key={page}>...</span>
+          <span data-testid={page} key={page}>
+            ...
+          </span>
         ) : (
           <Button
+            data-testid={`page-${page}`}
             isActive={currentPage === page}
             onClick={() => handleSetPage(page)}
             key={page}
@@ -56,6 +60,7 @@ export function Pagination({
         )
       )}
       <Button
+        data-testid="next-button"
         onlyIcon
         disabled={!hasNextPage}
         onClick={() => handleSetPage(currentPage + 1)}

@@ -47,5 +47,5 @@
       }
     }
   },
-  "ignorePatterns": ["webpack.config.js"]
+  "ignorePatterns": ["webpack.config.js","jest.config.js","tests/*"]
 }

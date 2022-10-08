@@ -21,7 +21,7 @@ function SkeletonStyled() {
 
 export function CharactersSkeletonLoading() {
   return (
-    <CharactersListContent>
+    <CharactersListContent data-testid="skeleton-loading">
       <SkeletonStyled />
       <SkeletonStyled />
       <SkeletonStyled />

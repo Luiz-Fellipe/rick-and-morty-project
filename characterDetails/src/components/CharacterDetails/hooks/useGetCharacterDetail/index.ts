@@ -35,5 +35,7 @@ export function useGetCharacter({ characterId }: IUseGetCharacterProps) {
     }
   );
 
+  console.log('data', JSON.stringify(data));
+
   return { data, isLoading, isSuccess };
 }
