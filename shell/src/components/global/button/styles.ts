@@ -12,28 +12,73 @@ export const ButtonStyled = styled('button', {
   fontSize: '$12',
   fontWeight: '$medium',
 
-  transition: 'all 0.2s ease-out',
+  transition: 'border,outline 0.1s ease',
 
   '&:disabled': {
     cursor: 'not-allowed',
-    backgroundColor: '$B300',
+    opacity: '0.6',
   },
 
   padding: '$8 $16',
 
-  backgroundColor: '$G0',
-
   textAlign: 'center',
-  color: '$N0',
+  // color: '$N0',
 
-  '&:hover': {
-    backgroundColor: '$G1',
+  variants: {
+    variant: {
+      primary: {
+        backgroundColor: '$G0',
+        '&:hover:not(:disabled)': {
+          backgroundColor: '$G1',
+        },
+        '&:focus:not(:disabled)': {
+          outline: '2px solid $G1A',
+          backgroundColor: '$G1',
+        },
+      },
+      secondary: {
+        backgroundColor: '$B0',
+        color: '$N0',
+
+        '&:hover:not(:disabled)': {
+          backgroundColor: '$B1',
+        },
+        '&:focus:not(:disabled)': {
+          outline: '2px solid $B2',
+          backgroundColor: '$B1',
+        },
+      },
+    },
+    iconSide: {
+      left: {
+        flexDirection: 'row',
+      },
+      right: {
+        flexDirection: 'row-reverse',
+      },
+    },
+
+    isActive: {
+      true: {},
+    },
   },
 
-  '&:focus': {
-    outline: '2px solid $G0',
-  },
-  '&:active': {
-    backgroundColor: '$B600',
-  },
+  compoundVariants: [
+    {
+      variant: 'primary',
+      isActive: true,
+      css: {
+        outline: '2px solid $G1A',
+        backgroundColor: '$G2 !important',
+      },
+    },
+    {
+      variant: 'secondary',
+      isActive: true,
+      css: {
+        outline: '2px solid $B2',
+        backgroundColor: '$B1 !important',
+      },
+    },
+  ],
 });

@@ -1,17 +1,14 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
-const ShellApp = React.lazy(() => import('shell/App'));
+const Home = React.lazy(() => import('shell/App'));
 
 function App() {
-  function LoadingShell() {
-    return <div>Loading Shell...</div>;
-  }
-
   return (
-    <React.Suspense fallback={<LoadingShell />}>
-      <ShellApp />
+    <React.Suspense fallback={<div>Loading Shell...</div>}>
+      <Home />
     </React.Suspense>
   );
 }
 
-export default App;
+ReactDOM.render(<App />, document.getElementById('app'));

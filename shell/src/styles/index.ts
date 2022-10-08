@@ -1,13 +1,19 @@
 import { createStitches, ScaleValue } from '@stitches/react';
 
 export const { styled, getCssText, globalCss } = createStitches({
+  prefix: 'shell',
   theme: {
     colors: {
       N0: '#FFFFFF',
       N1: '#FFFCF9',
       B0: '#42B4CA',
+      B1: '#3885B3',
+      B2: '#2E5B9B',
+      B3: '#59D3D0',
       G0: '#BFDE42',
       G1: '#8BC537',
+      G1A: 'RGBA(139,197,55,0.49)',
+      G2: '#628c27',
       GR0: '#333333',
       GR1: '#828282',
       GR2: '#D8DAE5',
@@ -24,6 +30,7 @@ export const { styled, getCssText, globalCss } = createStitches({
       '16': `1rem`,
       '24': `1.5rem`,
       '32': `2rem`,
+      '36': '2.25rem',
       '48': '3rem',
       '80': '5rem',
     },
@@ -38,6 +45,7 @@ export const { styled, getCssText, globalCss } = createStitches({
     sizes: {
       '344': '21.5rem',
       '720': '45rem',
+      '1360': '85rem',
     },
     fontSizes: {
       '8': `0.5rem`,

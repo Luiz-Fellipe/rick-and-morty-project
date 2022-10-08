@@ -1,19 +1,19 @@
-const HtmlWebPackPlugin = require('html-webpack-plugin');
-const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
-const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
-const deps = require('./package.json').dependencies;
+const HtmlWebPackPlugin = require("html-webpack-plugin");
+const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
+const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
+const deps = require("./package.json").dependencies;
 
 module.exports = {
   output: {
-    publicPath: 'http://localhost:3000/',
+    publicPath: "http://localhost:3000/",
   },
 
   resolve: {
-    extensions: ['.tsx', '.ts', '.jsx', '.js', '.json'],
+    extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
     plugins: [
       new TsconfigPathsPlugin({
-        configFile: './tsconfig.json',
-        extensions: ['.tsx', '.ts'],
+        configFile: "./tsconfig.json",
+        extensions: [".tsx", ".ts"],
       }),
     ],
   },
@@ -27,48 +27,54 @@ module.exports = {
     rules: [
       {
         test: /\.m?js/,
-        type: 'javascript/auto',
+        type: "javascript/auto",
         resolve: {
           fullySpecified: false,
         },
       },
       {
         test: /\.(css|s[ac]ss)$/i,
-        use: ['style-loader', 'css-loader', 'postcss-loader'],
+        use: ["style-loader", "css-loader", "postcss-loader"],
       },
       {
         test: /\.(ts|tsx|js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
         },
       },
       {
-        test: /\.(png|jpe?g|gif)$/i,
+        test: /\.(png|jpe?g|gif|webp)$/i,
         use: [
           {
-            loader: 'file-loader',
+            loader: "file-loader",
           },
         ],
+      },
+      {
+        test: /\.js$/,
+        enforce: "pre",
+        use: ["source-map-loader"],
       },
     ],
   },
 
   plugins: [
     new ModuleFederationPlugin({
-      name: 'shell',
-      filename: 'remoteEntry.js',
+      name: "shell",
+      filename: "remoteEntry.js",
       remotes: {
         character_details:
-          'character_details@http://localhost:3002/remoteEntry.js ',
+          "character_details@http://localhost:3002/remoteEntry.js",
         characters_list:
-          'characters_list@http://localhost:3001/remoteEntry.js '
+          "characters_list@http://localhost:3001/remoteEntry.js",
       },
       exposes: {
-        './styles': './src/styles/index.ts',
-        './components/button': './src/components/global/button/index.tsx',
-        './components/input': './src/components/global/input/index.tsx',
-        './App': './src/App',
+        "./components/button": "./src/components/global/button/index.tsx",
+        "./components/input": "./src/components/global/input/index.tsx",
+        "./components/styles/SkeletonLoading": "./src/components/global/SkeletonLoading/styles.ts",
+        "./App": "./src/App",
+        "./Services": "./src/services/api.ts"
       },
       shared: [
         {
@@ -77,18 +83,23 @@ module.exports = {
             singleton: true,
             requiredVersion: deps.react,
           },
-          'react-dom': {
+          "react-dom": {
             singleton: true,
-            requiredVersion: deps['react-dom'],
+            requiredVersion: deps["react-dom"],
           },
-          '@fortawesome/free-solid-svg-icons': {
+          '@tanstack/react-query': {
             singleton: true,
+            requiredVersion: "^4.7.1",
+          },
+          '@stitches/react': {
+            singleton: true,
+            requiredVersion: "^1.2.8"
           }
         },
       ],
     }),
     new HtmlWebPackPlugin({
-      template: './src/index.html',
+      template: "./src/index.html",
     }),
   ],
 };

@@ -1,41 +1,51 @@
 {
-    "env": {
-      "browser": true,
-      "es2021": true
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  
+  "extends": [
+    "plugin:react/recommended",
+    "airbnb",
+    "airbnb-typescript",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "characterDetails/tsconfig.json",
+    "ecmaFeatures": {
+      "jsx": true
     },
-    "extends": ["plugin:react/recommended", "airbnb", "plugin:prettier/recommended"],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-      "ecmaFeatures": {
-        "jsx": true
-      },
-      "ecmaVersion": "latest",
-      "sourceType": "module"
-    },
-    "plugins": ["react", "@typescript-eslint", "prettier"],
-    "rules": {
-      "no-use-before-define": "off",
-      "react/require-default-props": "off",
-      "@typescript-eslint/no-use-before-define": ["error"],
-      "react/jsx-filename-extension": ["warn", { "extensions": [".tsx"] }],
-      "react/jsx-props-no-spreading": "off",
-      "import/extensions": [
-        "error",
-        "ignorePackages",
-        {
-          "ts": "never",
-          "tsx": "never"
-        }
-      ],
-      "no-shadow": "off",
-      "import/no-unresolved": "off",
-      "import/prefer-default-export": "off",
-      "@typescript-eslint/no-shadow": ["error"]
-    },
-    "settings": {
-      "import/resolver": {
-        "typescript": {}
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["react", "@typescript-eslint", "prettier"],
+  "rules": {
+    "no-use-before-define": "off",
+    "react/require-default-props": "off",
+    "@typescript-eslint/no-use-before-define": ["error"],
+    "react/jsx-filename-extension": ["warn", { "extensions": [".tsx"] }],
+    "react/jsx-props-no-spreading": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "no-shadow": "off",
+    "import/no-unresolved": "off",
+    "import/prefer-default-export": "off",
+    "@typescript-eslint/no-shadow": ["error"]
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true,
+        "project": "characterDetails/tsconfig.json"
       }
     }
-  }
-  
+  },
+  "ignorePatterns": ["webpack.config.js","jest.config.js","tests/*"]
+}
