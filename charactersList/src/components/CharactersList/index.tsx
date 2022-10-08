@@ -1,6 +1,9 @@
 import React, { useRef, useState } from 'react';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+// Hooks
+import { useGetCharacters } from '@/components/CharactersList/hooks/useGetCharacters';
+
 // Components
 import { Input } from 'shell/components/input';
 import { Button } from 'shell/components/button';
@@ -8,9 +11,6 @@ import { CharactersSkeletonLoading } from './components/CharactersSkeletonLoadin
 import { CharactersNotFound } from './components/CharactersNotFound';
 import { CharacterCard } from './components/CharacterCard';
 import { Pagination } from './components/Pagination';
-
-// Hooks
-import { useGetCharacters } from './hooks/useGetCharacters';
 
 // Styles
 import {

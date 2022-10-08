@@ -4,16 +4,18 @@ export interface IGetCharactersAttrs {
   name: string;
 }
 
-export interface IGetCharactersData {
-  characters: {
-    results: IGetCharactersAttrs[];
-    info: {
-      count: number;
-      next: number | null;
-      pages: number;
-      prev: number | null;
-    };
+export interface IApiDataProps {
+  results: IGetCharactersAttrs[];
+  info: {
+    count: number;
+    next: number | null;
+    pages: number;
+    prev: number | null;
   };
+}
+
+export interface IGetCharactersData {
+  characters: IApiDataProps;
 }
 
 export interface IGetCharactersVariable {

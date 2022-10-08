@@ -19,7 +19,7 @@ export function CharacterCard({
   characterId,
 }: ICharacterProps) {
   return (
-    <CardWrapper>
+    <CardWrapper data-testid="character-card">
       <img src={avatarUrl} alt={name} />
       <h2>{name}</h2>
 
